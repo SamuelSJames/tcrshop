@@ -32,7 +32,3 @@ This project simulates the network and server infrastructure for a small compute
 ## Project Structure
 
 
-
-
-## Project Structure
-

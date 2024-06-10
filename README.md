@@ -1,6 +1,6 @@
 # Tom's Computer Repair Shop (TCRShop)
 
-Welcome to the official repository of **Tom's Computer Repair Shop (TCRShop)**. This project is designed to demonstrate my skills in network design, Linux orchestration, and system administration. The setup includes a comprehensive network infrastructure for a small business environment.
+Welcome to the official repository of **Tom's Computer Repair Shop (TCRShop)**. This project is designed to demonstrate skills in network design, and system administration. The setup includes a comprehensive network infrastructure for a small business environment. ***note:*** Although IPFire is an exceptional statefull firewall, it is not one I would recommend. Their are some advanced vlan techniques I had to use to meet the customers request. As a rule IPFire doesn't have a striaght forward way of configuring vlans through the WEB-UI however, I've managed a work around using iptables..
 
 ## Project Overview
 

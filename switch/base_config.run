@@ -1,0 +1,165 @@
+# This is a temporary startup runbook so that we can let our Python script configure the switch exactly like we need it to!
+## Just copy and paste this into the terminal
+
+enable
+!
+conf t
+!
+hostname TCRS_SW1
+!
+username admin privilege 15 secret cisco123
+enable secret cisco123
+!
+no ip domain-lookup
+
+ip domain-name tcrs.tcrslan
+crypto key generate rsa general-keys modulus 2048
+!
+!
+interface GigabitEthernet0/0
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet0/1
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet0/2
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet0/3
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet1/0
+ media-type rj45
+ negotiation auto
+ shut
+!         
+interface GigabitEthernet1/1
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet1/2
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet1/3
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet2/0
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet2/1
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet2/2
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet2/3
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet3/0
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet3/1
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet3/2
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface GigabitEthernet3/3
+ media-type rj45
+ negotiation auto
+ shut
+!
+interface Vlan1
+ no shut
+ ip address 192.168.1.2 255.255.255.248
+ description ^^^NATIVE VLAN FOR green network^^^
+!
+control-plane
+!
+banner exec ^C
+**************************************************************************
+* Welcome to Tom's Computer Repair Shop Network                          *
+*                                                                        *
+* This network is strictly limited to authorized personnel for           *
+* evaluation, demonstration, and educational purposes related to         *
+* network and system administration.                                     *
+*                                                                        *
+* Unauthorized access or use is prohibited and may result in             *
+* disciplinary action or legal consequences.                             *
+*                                                                        *
+* For any inquiries, please contact:                                     *
+* - Tom's Computer Repair Shop IT Support                                *
+* - Email: support@tcrshop.com                                           *
+**************************************************************************^C
+!
+banner incoming ^C
+**************************************************************************
+* Welcome to Tom's Computer Repair Shop Network                          *
+*                                                                        *
+* This network is strictly limited to authorized personnel for           *
+* evaluation, demonstration, and educational purposes related to         *
+* network and system administration.                                     *
+*                                                                        *
+* Unauthorized access or use is prohibited and may result in             *
+* disciplinary action or legal consequences.                             *
+*                                                                        *
+* For any inquiries, please contact:                                     *
+* - Tom's Computer Repair Shop IT Support                                *
+* - Email: support@tcrshop.com                                           *
+**************************************************************************^C
+!
+banner login ^C
+**************************************************************************
+* Welcome to Tom's Computer Repair Shop Network                          *
+*                                                                        *
+* This network is strictly limited to authorized personnel for           *
+* evaluation, demonstration, and educational purposes related to         *
+* network and system administration.                                     *
+*                                                                        *
+* Unauthorized access or use is prohibited and may result in             *
+* disciplinary action or legal consequences.                             *
+*                                                                        *
+* For any inquiries, please contact:                                     *
+* - Tom's Computer Repair Shop IT Support                                *
+* - Email: support@tcrshop.com                                           *
+**************************************************************************^C
+!
+line con 0
+line aux 0
+line vty 0 15
+ login local
+ transport input ssh
+ exec-timeout 10 0
+ logging synchronous
+ privilege level 15
+!
+end
+
+Switch#

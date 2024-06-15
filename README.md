@@ -6,11 +6,7 @@ Welcome to the official repository of **Tom's Computer Repair Shop (TCRShop)**. 
 
 This project simulates the network and server infrastructure for a small computer repair shop. The network will consist of an IPFire firewall router, Cisco IOS multilayer switch, office devices, security devices, and a Point of Sale (POS) system. Additionally, an on-site server will be deployed to handle various services.
 
-<<<<<<< HEAD
-![Project Overview](assets/tcrs_project-overview.png)
-=======
 ![Project Overview](/tcrshop/assets/tcrs_project-overview.png)
->>>>>>> d2fc6c1 (add ipfire)
 
 ## Network Components
 

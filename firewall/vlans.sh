@@ -8,25 +8,6 @@ vconfig add green0 16
 ifconfig green0.10 10.11.12.1 netmask 255.255.255.240 up
 ifconfig green0.20 10.11.14.1 netmask 255.255.255.240 up
 ifconfig green0.30 10.11.16.1 netmask 255.255.255.240 up
-# Used for private firewall rules
-
-# See how we were called.
-case "$1" in
-  start)
-        ## add your 'start' rules here
-        ;;
-  stop)
-        ## add your 'stop' rules here
-        ;;
-  reload)
-        $0 stop
-        $0 start
-        ## add your 'reload' rules here
-        ;;
-  *)
-        echo "Usage: $0 {start|stop|reload}"
-        ;;
-esac
 
 # Load network settings
 . /var/ipfire/ethernet/settings

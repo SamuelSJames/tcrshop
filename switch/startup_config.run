@@ -102,54 +102,49 @@ interface Vlan1
  description ^^^NATIVE VLAN FOR green network^^^
 !
 control-plane
-!
-banner exec ^C
+`
+banner exec ^
 **************************************************************************
 * Welcome to Tom's Computer Repair Shop Network                          *
 *                                                                        *
-* This network is strictly limited to authorized personnel for           *
-* evaluation, demonstration, and educational purposes related to         *
-* network and system administration.                                     *
+* Access limited to authorized personnel for network and system repairs  *
 *                                                                        *
 * Unauthorized access or use is prohibited and may result in             *
 * disciplinary action or legal consequences.                             *
 *                                                                        *
-* For any inquiries, please contact:                                     *
+* For inquiries, contact:                                                *
 * - Tom's Computer Repair Shop IT Support                                *
 * - Email: support@tcrshop.com                                           *
-**************************************************************************^C
-!
-banner incoming ^C
+**************************************************************************^
+! 
+banner incoming ^
 **************************************************************************
 * Welcome to Tom's Computer Repair Shop Network                          *
 *                                                                        *
-* This network is strictly limited to authorized personnel for           *
-* evaluation, demonstration, and educational purposes related to         *
-* network and system administration.                                     *
+* Access limited to authorized personnel for network and system repairs  *
 *                                                                        *
 * Unauthorized access or use is prohibited and may result in             *
 * disciplinary action or legal consequences.                             *
 *                                                                        *
-* For any inquiries, please contact:                                     *
+* For inquiries, contact:                                                *
 * - Tom's Computer Repair Shop IT Support                                *
 * - Email: support@tcrshop.com                                           *
-**************************************************************************^C
-!
-banner login ^C
+**************************************************************************^
+! 
+banner login ^
 **************************************************************************
 * Welcome to Tom's Computer Repair Shop Network                          *
 *                                                                        *
-* This network is strictly limited to authorized personnel for           *
-* evaluation, demonstration, and educational purposes related to         *
-* network and system administration.                                     *
+* Access limited to authorized personnel for network and system repairs  *
 *                                                                        *
 * Unauthorized access or use is prohibited and may result in             *
 * disciplinary action or legal consequences.                             *
 *                                                                        *
-* For any inquiries, please contact:                                     *
+* For inquiries, contact:                                                *
 * - Tom's Computer Repair Shop IT Support                                *
 * - Email: support@tcrshop.com                                           *
-**************************************************************************^C
+**************************************************************************^
+
 !
 line con 0
 line aux 0

@@ -49,15 +49,15 @@ This project simulates the network and server infrastructure for a small compute
     ```
 
 2. **Set Up IPFire Firewall**:
-    - Navigate to the `firewall/ipfire-config` directory.
+    - Navigate to the `firewall/ipfire-config.md` directory.
     - Follow the configuration guide to set up the firewall.
 
 3. **Configure Cisco IOS Switch**:
-    - Navigate to the `switch/cisco-ios-config` directory.
+    - Navigate to the `switch/cisco-ios-config.md` directory.
     - Apply the configurations to your Cisco switch.
 
 4. **Set Up Server Services**:
-    - Navigate to the `server` directory.
+    - Navigate to the `server/server.md` directory.
     - Follow the individual service setup guides for the log server, SSH server, NVR, and NFS.
 
 ## Contributing

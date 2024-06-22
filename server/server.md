@@ -1,6 +1,4 @@
-Sure! Below is a Markdown file explaining the purpose of the `server` directory.
-
-### `server` Directory Overview
+## `server` Directory Overview
 
 The `server` directory is designed to store scripts and configurations specifically for managing and setting up the Ubuntu server. This directory acts as a central repository for all server-related scripts, making it easier to manage, deploy, and maintain various configurations and automation tasks.
 

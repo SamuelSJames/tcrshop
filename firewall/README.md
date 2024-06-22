@@ -33,13 +33,22 @@ pakfire install speedtest-cli
 ```
 ![micro](/tcrshop/assets/micro_install.png)
 
-## Connect your macbook or computer of choice and go to the web-ui https:ipfire.trslan:444
+### Connect your macbook or computer of choice and go to the web-ui https:ipfire.trslan:444
+Make whatever changes you want to make to your firewall such as mail-service, custom rules ect...
 
-### Firewall
-Now it's time to prep our fireall with vlans and nat using the "firewall.local" script
+## Back to Firewall CLI
+Now it's time to prep our fireall with vlans and nat using the "firwall.local.sh" script
 
 4. Navigateto the "/etc/sysconfig/" folder and bakup the "firewall.local file
 
 ```bash
 cp firewall.local firewall.local.bak
 ```
+5. copy and past the firewall.local to /etc/sysconfig/firewall.local
+
+6. Now run the following command:
+
+```bash
+/etc/sysconfig/firewall.local restart
+```
+Now your IPFire router will have vlans setup and configured. Note: You might have to run this command on reboot every time.

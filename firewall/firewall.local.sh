@@ -22,7 +22,7 @@ case "$1" in
         iptables -t nat -A POSTROUTING -o $RED_DEV -s 10.11.14.0/28 -j MASQUERADE
         iptables -t nat -A POSTROUTING -o $RED_DEV -s 10.11.16.0/28 -j MASQUERADE
 1
-        # Allow traffic between VLANs
+        # Allow traffic between VLANs (ONLY IF YOU WANT TO COMMUNICATE BETWEEN NETWORKS!! Other wise leave out.)
         iptables -I FORWARD -i green0.12 -o green0.14 -j ACCEPT
         iptables -I FORWARD -i green0.14 -o green0.12 -j ACCEPT
         iptables -I FORWARD -i green0.12 -o green0.16 -j ACCEPT

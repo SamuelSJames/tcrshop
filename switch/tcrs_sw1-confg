@@ -1,0 +1,334 @@
+
+!
+! Last configuration change at 01:32:21 UTC Mon Jun 24 2024
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+service sequence-numbers
+!
+hostname TCRS_SW1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$oQ/0$ZDkyetBba1R14BkDYCy3L0
+!
+username admin privilege 15 secret 5 $1$U9PW$NDnlGf8y5b6bcAJLgLmzJ.
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name tcrs.tcrslan
+ip name-server 192.168.1.1
+ip cef
+no ipv6 cef
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 1.1.1.2 255.255.255.255
+!
+interface Port-channel1
+ description **This is gig3/1-2 connected to Ubuntu server**
+ switchport trunk allowed vlan 1,12,14,16
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/0
+ description ** Toms Macbook should only be allownd on this port**
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0c77.110b.0000
+ switchport port-security
+ media-type rj45
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet0/1
+ switchport access vlan 14
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6803
+ switchport port-security
+ media-type rj45
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet0/2
+ switchport access vlan 14
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6804
+ switchport port-security
+ media-type rj45
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet0/3
+ switchport access vlan 99
+ shutdown
+ media-type rj45
+ negotiation auto
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0
+ switchport access vlan 16
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet1/1
+ switchport access vlan 16
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6802
+ switchport port-security
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet1/2
+ switchport access vlan 16
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0c87.b93d.0000
+ switchport port-security
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet1/3
+ switchport access vlan 16
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet2/0
+ switchport access vlan 12
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6806
+ switchport port-security
+ media-type rj45
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet2/1
+ switchport access vlan 12
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6800
+ switchport port-security
+ media-type rj45
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet2/2
+ switchport access vlan 12
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6801
+ switchport port-security
+ media-type rj45
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet2/3
+ switchport access vlan 12
+ switchport mode access
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6805
+ switchport port-security
+ media-type rj45
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet3/0
+ media-type rj45
+ negotiation auto
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet3/1
+ switchport trunk allowed vlan 1,12,14,16
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ media-type rj45
+ negotiation auto
+ channel-group 1 mode active
+!
+interface GigabitEthernet3/2
+ switchport access vlan 99
+ switchport trunk allowed vlan 1,12,14,16
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ media-type rj45
+ negotiation auto
+ channel-group 1 mode active
+!
+interface GigabitEthernet3/3
+ description **Trunk port to IPFIRE***
+ switchport trunk allowed vlan 1,12,14,16
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport port-security mac-address sticky
+ media-type rj45
+ negotiation auto
+!
+interface Vlan1
+ description ^^^NATIVE VLAN FOR green network^^^
+ ip address 192.168.1.2 255.255.255.248
+ ip helper-address 192.168.1.1 
+!
+interface Vlan12
+ description **SALES Vlan for POS systems reg1 and reg2 **
+ ip address 10.11.12.2 255.255.255.240
+ ip helper-address 10.11.12.3 
+!
+interface Vlan14
+ description **Security vlan for 4 cameras**
+ ip address 10.11.14.2 255.255.255.240
+ ip helper-address 10.11.14.3 
+!
+interface Vlan16
+ description **THis is the OFFICE LAN**
+ ip address 10.11.16.2 255.255.255.240
+ ip helper-address 10.11.16.3 
+!
+ip default-gateway 192.168.1.1
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+ip ftp username cisco
+ip ftp password cisco123
+ip ssh source-interface GigabitEthernet3/0
+!
+ip access-list standard IT_ACCESS_ONLY
+ permit 192.168.1.3 log
+ permit 192.168.1.4 log
+!
+!
+logging host 192.168.1.4
+!
+!
+!
+control-plane
+!
+banner exec 
+**************************************************************************
+* Welcome to Tom's Computer Repair Shop Network                          *
+*                                                                        *
+* Access limited to authorized personnel for network and system repairs  *
+*                                                                        *
+* Unauthorized access or use is prohibited and may result in             *
+* disciplinary action or legal consequences.                             *
+*                                                                        *
+* For inquiries, contact:                                                *
+* - Tom's Computer Repair Shop IT Support                                *
+* - Email: support@tcrshop.com                                           *
+**************************************************************************
+banner incoming 
+**************************************************************************
+* Welcome to Tom's Computer Repair Shop Network                          *
+*                                                                        *
+* Access limited to authorized personnel for network and system repairs  *
+*                                                                        *
+* Unauthorized access or use is prohibited and may result in             *
+* disciplinary action or legal consequences.                             *
+*                                                                        *
+* For inquiries, contact:                                                *
+* - Tom's Computer Repair Shop IT Support                                *
+* - Email: support@tcrshop.com                                           *
+**************************************************************************
+banner login 
+**************************************************************************
+* Welcome to Tom's Computer Repair Shop Network                          *
+*                                                                        *
+* Access limited to authorized personnel for network and system repairs  *
+*                                                                        *
+* Unauthorized access or use is prohibited and may result in             *
+* disciplinary action or legal consequences.                             *
+*                                                                        *
+* For inquiries, contact:                                                *
+* - Tom's Computer Repair Shop IT Support                                *
+* - Email: support@tcrshop.com                                           *
+**************************************************************************
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ login local
+line aux 0
+line vty 0 4
+ access-class IT_ACCESS_ONLY in
+ exec-timeout 5 10
+ privilege level 15
+ logging synchronous
+ login local
+ transport input ssh
+line vty 5 15
+ privilege level 15
+ no login
+ transport input ssh
+!
+!
+end

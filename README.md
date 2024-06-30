@@ -44,7 +44,7 @@ This project simulates the network and server infrastructure for a small compute
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/tcrshop.git
+    git clone https://github.com/SamuelSJames/tcrshop.git
     cd tcrshop
     ```
 
